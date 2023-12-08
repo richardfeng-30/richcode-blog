@@ -22,7 +22,7 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['var(--font-inter)', ...fontFamily.sans],
+        sans: ['Inter var', ...fontFamily.sans],
       },
       colors: {
         primary: colors.sky,
