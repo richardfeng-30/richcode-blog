@@ -9,7 +9,7 @@ const siteMetadata = {
   siteUrl: 'https://blog.richcode.org',
   siteRepo: 'https://github.com/richardfeng-30/richcode-blog',
   siteLogo: '/static/images/logo.png',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/static/images/banner.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'richcode.org@gmail.com',
   github: 'https://github.com',
