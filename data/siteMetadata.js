@@ -1,6 +1,6 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Blog - RICHCODE',
+  title: 'RICHCODE Blog',
   author: 'RICHCODE Team',
   headerTitle: 'RICHCODE',
   description: 'A blog created with Next.js and Tailwind.css',
@@ -15,7 +15,7 @@ const siteMetadata = {
   github: 'https://github.com',
   twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
-  youtube: 'https://www.youtube.com/@RICHCODE2021',
+  youtube: 'https://youtube.com/@RICHCODE2021',
   linkedin: 'https://www.linkedin.com',
   locale: 'en-US',
   analytics: {

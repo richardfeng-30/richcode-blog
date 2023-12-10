@@ -1,4 +1,6 @@
 import 'css/tailwind.css'
+import 'css/fonts.css'
+
 import 'pliny/search/algolia.css'
 
 import { Analytics } from '@vercel/analytics/react'
