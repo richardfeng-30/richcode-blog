@@ -13,6 +13,7 @@ Support our blog by giving it a star on GitHub.
 This blog includes tutorials and other works written and created by the RICHCODE Team. No part of this blog may be reproduced without prior permission. All work within this blog is copyrighted by the respective authors.
 
 © Copyright January 2024
+
 All Rights Reserved.
 
 
