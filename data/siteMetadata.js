@@ -12,7 +12,7 @@ const siteMetadata = {
   socialBanner: '/static/images/banner.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'richcode.org@gmail.com',
-  github: 'https://github.com',
+  github: 'https://github.com/richcodeorg',
   twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com/@RICHCODE2021',
