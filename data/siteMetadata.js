@@ -3,7 +3,7 @@ const siteMetadata = {
   title: 'RICHCODE Blog',
   author: 'RICHCODE Team',
   headerTitle: 'RICHCODE',
-  description: 'A blog created with Next.js and Tailwind.css',
+  description: 'Welcome to the RICHCODE Blog!',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://blog.richcode.org',
