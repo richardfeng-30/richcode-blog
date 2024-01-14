@@ -15,8 +15,9 @@ const siteMetadata = {
   github: 'https://github.com/richcodeorg',
   twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com/@RICHCODE2021',
+  youtube: 'https://youtube.com/@richcodeorg',
   linkedin: 'https://www.linkedin.com',
+  instagram: 'https://www.instagram.com/richcodeorg',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
