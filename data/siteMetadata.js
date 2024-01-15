@@ -25,7 +25,7 @@ const siteMetadata = {
     // supports Plausible, Simple Analytics, Umami, Posthog or Google Analytics.
     umamiAnalytics: {
       // We use an env variable for this site to avoid other users cloning our analytics ID
-      umamiWebsiteId: '7df07cb0-384d-4d94-a549-df04929513d9', // e.g. 123e4567-e89b-12d3-a456-426614174000
+      umamiWebsiteId: 'a338aa51-e515-4c95-a832-e7db7d438cec', // e.g. 123e4567-e89b-12d3-a456-426614174000
     },
     // plausibleAnalytics: {
     //   plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
