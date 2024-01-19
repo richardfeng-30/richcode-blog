@@ -2,23 +2,23 @@
 title: 'Bash Scripting Introduction: Streamlining USACO Problem Solving'
 date: '2024-01-18'
 lastmod: '2024-01-18'
-tags: ['bash', 'usaco', 'automation', 'guide']
+tags: [‘bash’, ‘usaco’, ‘automation’, ‘guide’]
 draft: false
 summary: 'While solving and practicing USACO problems, a recurring yet minor inconvenience is the repetitive copy-pasting of boilerplate code at the beginning of each new problem.'
 authors: ['keijayhuang']
 ---
 
-### Introduction
+## Introduction
 
 Often times I find myself optimizing for even the most marginal efficiency gains, spending hours automating something that might have only taken a few minutes.
 
 While solving and practicing USACO problems, a recurring yet minor inconvenience is the repetitive copy-pasting of boilerplate code at the beginning of each new problem. This blog explores the use of a shell script to automate this process, offering a solution to a shared annoyance among many competitive programmers, as well as serving as a fun introduction to the power of command line scripting.
 
-### What is the shell?
+## What is the shell?
 
 The shell is a program that interprets commands from the command line and sends them to the operating system to execute. Its capabilities extend from navigating the file system to text manipulation, running programs, and, in our case, automating repetitive tasks.
 
-### Let's Get Started
+## Let's Get Started
 
 To achieve our task of removing as much overhead as possible when starting a problem, there are three things we need to accomplish:
 
@@ -26,7 +26,7 @@ To achieve our task of removing as much overhead as possible when starting a pro
 - Insert the sample test case into the input file
 - Generate includes and an I/O template into main file.
 
-**Setting the Stage:**
+### Setting the Stage:
 
 Our script, written in Bash, is named `usaco_template.sh`. At the top, we ensure the script is executed using Bash with the following shebang:
 
@@ -34,7 +34,7 @@ Our script, written in Bash, is named `usaco_template.sh`. At the top, we ensure
 #!/bin/bash
 ```
 
-**Input:**
+### Input:
 
 There are a few methods of gathering user input in a shell script. However we will focus on the use of command line arguments.
 
@@ -128,6 +128,6 @@ EOF
 pbpaste > "${name}.in"
 ```
 
-**Conclusion**
+## Conclusion
 
 We created a simple script that makes starting a new problem only one command away. Sure, we might not be saving hours, but creating small projects like this is a great way to introduce ourselves to new things in a fun but useful way!
