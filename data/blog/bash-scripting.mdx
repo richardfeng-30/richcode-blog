@@ -1,0 +1,133 @@
+---
+title: 'Bash Scripting Introduction: Streamlining USACO Problem Solving'
+date: '2024-01-18'
+lastmod: '2024-01-18'
+tags: ['bash', 'usaco', 'automation', 'guide']
+draft: false
+summary: 'While solving and practicing USACO problems, a recurring yet minor inconvenience is the repetitive copy-pasting of boilerplate code at the beginning of each new problem.'
+authors: ['keijayhuang']
+---
+
+### Introduction
+
+Often times I find myself optimizing for even the most marginal efficiency gains, spending hours automating something that might have only taken a few minutes.
+
+While solving and practicing USACO problems, a recurring yet minor inconvenience is the repetitive copy-pasting of boilerplate code at the beginning of each new problem. This blog explores the use of a shell script to automate this process, offering a solution to a shared annoyance among many competitive programmers, as well as serving as a fun introduction to the power of command line scripting.
+
+### What is the shell?
+
+The shell is a program that interprets commands from the command line and sends them to the operating system to execute. Its capabilities extend from navigating the file system to text manipulation, running programs, and, in our case, automating repetitive tasks.
+
+### Let's Get Started
+
+To achieve our task of removing as much overhead as possible when starting a problem, there are three things we need to accomplish:
+
+- Create the input and code files with the problem name.
+- Insert the sample test case into the input file
+- Generate includes and an I/O template into main file.
+
+**Setting the Stage:**
+
+Our script, written in Bash, is named `usaco_template.sh`. At the top, we ensure the script is executed using Bash with the following shebang:
+
+```bash
+#!/bin/bash
+```
+
+**Input:**
+
+There are a few methods of gathering user input in a shell script. However we will focus on the use of command line arguments.
+
+Command line arguments are passed to the script when it is first called, like so:
+
+```
+$ ./usaco_template.sh arg1 arg2
+```
+
+("./" simply tells the shell to execute our program)
+
+In our code we can access these arguments using a special syntax; `$0` represents the script name, `$1`, `$2`, etc. represent the first, second, and subsequent arguments.
+
+In our example, `$2` would have the value of `arg2`.
+
+We will use this method of input to ask the user for the name of the problem, which is used to name the input and code files.
+
+To check if the name is provided (`$1` is not empty), we can use an if statement with the `-z` condition, which checks that a string is not empty. We can then create a new variable, and set it to the value of `$1`.
+
+```bash
+if [ -z "$1" ]; then
+    echo "please enter a file name"
+    exit 1
+fi
+name="$1"
+```
+
+Next, we will use the `cat` command, which will help us create a file and append content to it.
+
+```bash
+cat > newfile.txt
+```
+
+This command opens a new file named "newfile.txt" and awaits input to be put inside of it.
+
+```bash
+cat > newfile.txt << EOF
+hi
+EOF
+```
+
+In order to insert the contents that we want, we can use a Here Document, denoted using `<< EOF` this will write the lines between `<< EOF` and the next `EOF` into our file.
+
+We can also use `${name}` to access the `name` variable we set earlier to use as the file name.
+
+```bash
+cat > "${name}.cpp" << EOF
+Insert Template Here
+EOF
+```
+
+This code will create a new file with the name we give as input, with a set template inserted into the file, using the name given to open the requisite input and output files.
+
+Lastly, to create our sample input file, we can simply use the cat command again, except this time directly pasting from the clipboard.
+
+```bash
+pbpaste > "${name}.in"
+```
+
+We access the clipboard using the `pbpaste` command which only works on Mac OS, however can be can be adapted for [other systems](https://levelup.gitconnected.com/how-to-access-the-system-clipboard-copy-paste-from-the-command-line-c8615d510ae2) as needed.
+
+Combining everything, we get the following script (with my personal template).
+
+```bash
+#!/bin/bash
+if [ -z "$1" ]; then
+    echo "please enter a file name"
+    exit 1
+fi
+
+name="$1"
+
+cat > "${name}.cpp" << EOF
+#include <iostream>
+#include <cstdio>
+#include <vector>
+#include <limits>
+#include <algorithm>
+#include <set>
+#include <unordered_set>
+using namespace std;
+
+int main(){
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
+        freopen("${name}.in", "r", stdin);
+        freopen("${name}.out", "w", stdout);
+}
+EOF
+
+pbpaste > "${name}.in"
+```
+
+**Conclusion**
+
+We created a simple script that makes starting a new problem only one command away. Sure, we might not be saving hours, but creating small projects like this is a great way to introduce ourselves to new things in a fun but useful way!
