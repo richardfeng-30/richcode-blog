@@ -1,0 +1,251 @@
+---
+title: Python List Basics
+date: '2024-01-24'
+lastmod: '2024-01-24'
+tags: ['python', 'guide']
+draft: false
+summary: 'The basics of creating, changing, and using lists in Python.'
+authors: ['moleizhong']
+---
+
+## Introduction
+
+In Python, a list is a type of data structure that can store a collection of items. Lists are a fundamental part of a programmer's repertoire, and are often used whenever many values need to be kept track of at once. In this blog, we will cover the basics of using lists in Python.
+
+## Initializing a List
+
+First, let's create a list to work with. Lists can be declared by separating elements with commas, and enclosing them in `[]`. Elements in a list do **not** have to be all of the same type, even if these demonstrations are only using strings.
+
+```py
+#example of initializing a list in Python with square brackets
+my_list = ["This", "is", "a", "list"]
+print(my_list)
+```
+
+**Output:**
+
+["This", "is", "a", "list"]
+
+When setting these starting values, you can also use variables as values.
+
+```py
+#example of initializing a list in Python with variables
+a = "These"
+b = "are"
+c = "some"
+d = "variables"
+my_list = [a, b, c, d]
+print(my_list)
+```
+
+**Output:**
+
+["These", "are", "some", "variables"]
+
+Declaring with square brackets allows you to set initial values for your list, although you can initialize an empty list this way as well.
+
+```py
+#empty list in python
+my_list = []
+print(my_list)
+```
+
+**Output:**
+
+[]
+
+## Accessing Elements in a List
+
+Elements in a list are **indexed**. Each element has a number that corresponds to their position in the list. The first element will have index `0`, the second element `1`, the third `2`, and so on. To access an element in a list by index, simply place `[n]` after the name of your list, with `n` being the index of the element you wish to get.
+
+```py
+#example of accessing an element by index
+my_list = ["This", "is", "a", "list"]
+print(my_list[3])
+```
+
+**Output:**
+
+list
+
+Using a negative index will select elements from the back of the list.
+
+```py
+#example of using negative indexes
+my_list = ["This", "is", "a", "list"]
+print(my_list[-3])
+```
+
+**Output:**
+
+is
+
+You can also access several values from a list at once by **splicing** it.
+To splice a list, use the following syntax:
+
+    my_list[start_index:end_index]
+
+Doing so gives a new list with every element in `my_list` from index `start_index` to `end_index`. This new list **includes** the element at `start_index`, and **excludes** the element at `end_index`.
+
+```py
+#example of splicing a list
+my_list = ["This", "is", "a", "list"]
+print(my_list[1:3])
+```
+
+**Output:**
+
+    ["is", "a"]
+
+Leaving `start_index` blank will splice from the start of the list (every element before `end_index`). Likewise, leaving `end_index` blank will splice to the back of the list (every element at and after `start_index`). Leaving both blank will create a complete copy of the list.
+
+```py
+#example of more splicing
+my_list = ["This", "is", "a", "list"]
+print(my_list[1:])
+print(my_list[:3])
+print(my_list[:])
+```
+
+**Output:**
+
+["is", "a", "list"]
+["This", "is", "a"]
+["This", "is", "a", "list"]
+
+When working with indexes, always keep in mind the size of your lists. Using an index that is not in the list will create an error and stop your code.
+
+```py
+#example of bad list indexing
+my_list = ["This", "is", "a", "list"]
+print(my_list[4])
+```
+
+**Output:**
+
+IndexError: list index out of range
+
+To help with this, we can use the built-in function `len()` to get the length of the list, with the following syntax:
+
+len(list_name)
+
+where `list_name` is your list.
+
+```py
+#example of using the len() function
+my_list = ["This", "is", "a", "list"]
+print(len(my_list))
+```
+
+**Output:**
+
+    4
+
+## Changing the Contents of a List
+
+To change the element at an index in a list, we can use the assignment operator `=`.
+
+```py
+#example of changing an element in a list
+my_list = ["This", "is", "a", "list"]
+my_list[2] = "another"
+print(my_list)
+```
+
+**Output:**
+
+    ["This", "is", "another", "list"]
+
+However, modifying lists in ways that change their size will require the use of methods. For example, we can add elements to the end of a list using the built-in `.append()` method. Its syntax is as follows:
+
+list.append(value)
+
+where `value` is the element you want to add.
+
+```py
+#example of appending an element to a list
+my_list = ["This", "is", "a", "list"]
+my_list.append("too")
+print(my_list)
+```
+
+**Output:**
+
+["This", "is", "a", "list", "too"]
+
+You can also add elements into the middle of the list using the `.insert()` method. Its syntax is as follows:
+
+list.insert(index, value)
+
+where `list` is the name of the list, and `index` is the position you want to add `value` at. All elements at and after `index` will have their index increased by one to make space for the new element.
+
+```py
+#example of inserting an element into a list
+my_list = ["This", "is", "a", "list"]
+my_list.append(2, "also")
+print(my_list)
+```
+
+**Output:**
+
+["This", "is", "also", "a", "list"]
+
+Finally, we can also delete elements from lists using the del keyword. Simply place the element to be deleted after del, and it will be removed. Elements after it will be shifted up by one to fill the gap.
+
+```py
+#example of deleting an element from a list
+my_list = ["This", "is", "a", "list"]
+del my_list[1]
+print(my_list)
+```
+
+**Output:**
+
+["This", "a", "list"]
+
+## Looping Through Lists
+
+Sometimes, we want to be able to interact with elements in a list individually. When lists can contain hundreds, thousands, maybe even _millions_ of elements, there is no way we can write out code for each individual value. Instead, we can use loops to greatly shorten our code. The simplest and most common way is to use a `for` loop to iterate through our list.
+When we use a `for` loop directly on a list, it will execute the enclosed code with the iterating variable set to elements of the list until the list has been exhausted. The values will be taken from the list in increasing index order, starting with index `0`.
+
+```py
+#example of using a for loop to iterate through a list
+my_list = ["This", "is", "a", "list"]
+for value in my_list:
+    print(value)
+```
+
+**Output:**
+
+This
+
+is
+
+a
+
+list
+
+However, there are some situations where you will also need the corresponding indexes to your values. In this case, we can use a `for i in range()` loop.
+Combining this with the `len()` function, we can now iterate through every index in the list, which we can then use to access elements.
+
+```py
+#example of using a for i in range() loop to iterate through a list
+my_list = ["This", "is", "a", "list"]
+for i in range(len(my_list)):
+    print("Element at index " + str(i) + " : " + my_list[i])
+```
+
+**Output:**
+
+Element at index 0 : This
+
+Element at index 1 : is
+
+Element at index 2 : a
+
+Element at index 3 : list
+
+## Conclusion
+
+Lists in Python are versatile and powerful data structures that can be found in almost any program. There are even more ways to use lists (which we will cover in a different blog post), but for now, you are another step closer to mastering Python!
+Happy Coding!
