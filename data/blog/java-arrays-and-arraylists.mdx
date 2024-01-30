@@ -1,0 +1,137 @@
+---
+title: 'Java Arrays and ArrayLists'
+date: '2024-01-26'
+lastmod: '2024-01-26'
+tags: ['coding', 'java', 'guide']
+draft: false
+summary: 'In Java, an array is a data structure that stores elements of the same type.'
+authors: ['jadentang']
+---
+
+We have covered the basic data types in Java, but when you need to store a collection of data, Arrays and ArrayLists are our good friends.
+
+## Arrays
+
+In Java, an array is a data structure that stores elements of the same type. Unlike some programming languages, Java Arrays have a set size. The array size cannot be directly edited without declaring a new Array. In Java, you can also have multiple-dimensional arrays.
+
+### 1D arrays
+
+To declare a basic 1D array, use the following syntax:
+
+```
+dataType[] arrayName = new dataType[size];
+```
+
+In the example above, `dataType` can be int, String, or even objects. Once you declare the size of the array, it cannot be changed.
+
+To edit an element in a 1D array,
+
+```
+arrayName[index] = value;
+```
+
+Arrays, just like strings, are indexed. In the example above, `index` must be **less** than the array size and greater than or equal to 0, and the value must be of the correct data type (remember, Arrays are zero-indexed).
+
+### Multi-Dimensional Arrays
+
+Declaring a multidimensional array is similar to the 1D array but with more sets of brackets.
+
+Declaring a 2D array:
+
+```
+dataType[][] arrayName = new dataType[size][size];
+```
+
+Declaring a 3D array
+
+```
+dataType[][][] arrayName = new dataType[size][size][size];
+```
+
+Not all dimensions have to be equal. For example, you could have a 3 by 4 by 5 array, or a 2 by 2 by 2 array.
+
+## ArrayLists
+
+If you don't know the number of elements beforehand, you may need to use an ArrayList. Unlike Arrays, ArrayLists can store different data types, and the size is not fixed. To use an ArrayList, you should import it first:
+
+```
+import java.util.ArrayList;
+```
+
+After importing the ArrayList class, to declare an ArrayList, use the following syntax:
+
+```
+ArrayList<dataType> arrayListName = new ArrayList<>();
+```
+
+You can remove the `< dataType >` portion of the declaration if you need multiple datatypes. The data type can be an ArrayList, which is how you declare a multi-dimensional ArrayList. For example, if you wanted to declare a 2D ArrayList, you can do the following:
+
+```
+ArrayList<ArrayList<dataType>> arrayListName = new ArrayList<>();
+```
+
+### Adding Items to an ArrayList
+
+The .add() function is used to add items to an ArrayList.
+
+```
+arrayListName.add(item);
+```
+
+For multi-dimensional Arrays, to add to an inner ArrayList, we need to use a combination of the .get() function and the .add() function. The .get() function is used whenever you need to go to a sub-ArrayList, and the .add() function will add it. For example, if we needed to add to a 3D ArrayList named test, we can do the following
+
+```
+test.get(pos).get(pos1).add(value);
+```
+
+This will add the value of the variable "value" to the ArrayList at pos (pos, pos1).
+
+### Accessing Items from an ArrayList
+
+To access an element from an ArrayList, we use the .get() function. The .get() function returns the value at the position of your ArrayList. For example, if we wanted to get the 3rd element from an ArrayList called `Cars` (provided there are at least 3 elements), we would do
+
+```
+Cars.get(2);
+```
+
+Remember, the index in this case is 2 since ArrayLists are also zero-indexed.
+
+### Removing Items from an ArrayList
+
+To remove an element from an ArrayList, we use the .remove() function. There are two ways this function is implemented. Either, we give it a position, and it removes the element at the position, or we give it an Object, and it removes the first occurrence of the Object. To remove the second object in an ArrayList named Joe, we can either do
+
+```
+Cars.remove(1);
+```
+
+or, we can do
+
+```
+Cars.remove(k);
+```
+
+where `k` is the object value of the second object's location.
+
+## ArrayLists and Arrays Used Together
+
+These two data types can be used together, meaning we can create Arrays of ArrayLists and ArrayLists of Arrays.
+
+To declare an Array of ArrayLists, we use the following syntax
+
+```
+ArrayList<dataType>[] arrayName = new ArrayList[size];
+```
+
+After declaration, we cannot directly access every ArrayList inside, since they are all null. To access it, we need to loop through (this will be explained in a later blog article), and put a new ArrayList in each one.
+
+To declare an ArrayList of Arrays, we use the following syntax.
+
+```
+ArrayList<dataType[]> arrayListName = new ArrayList<>();
+```
+
+We use the same syntax as a Normal ArrayList for the ArrayList of Arrays.
+
+## Conclusion
+
+In conclusion, Arrays and ArrayLists are used for storing multiple variables in one container. The main differences are that Arrays are fixed size, and can only store one type of element, while ArrayLists have an infinite number of sizes, and can store many types of Arrays. Happy Coding!
