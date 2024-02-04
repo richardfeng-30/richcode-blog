@@ -1,0 +1,94 @@
+---
+title: 'Bit Manipulation'
+date: '2024-01-30'
+lastmod: '2024-01-30'
+tags: ['math', 'coding', 'guide']
+draft: false
+summary: 'Computers store information using bits. A bit (short for "binary digit") stores either the value 0 or 1. When we have only two choices, we can use a bit.'
+authors: ['richardfeng']
+---
+
+Computers store information using bits. A **bit** (short for "binary digit") stores either the value $0$ or $1$. When we have only two choices, we can use a bit.
+
+The following examples in our daily lives can be represented using bits:
+
+1. Is a lightbulb on or off?
+
+2. Is a button enabled or disabled?
+
+3. Is the current time AM or PM?
+
+There are different bitwise operations used in bit manipulation. These bit operations operate on the individual bits of bit patterns. Bit operations are fast and can be used in optimizing time complexity. Some common bit operators are:
+
+| Symbol | Operator                   | Description                                                                 |
+| ------ | -------------------------- | --------------------------------------------------------------------------- |
+| ~      | Not                        | Bit n of ~x is the opposite of bit n of x                                   |
+| &      | And                        | Bit n of x & y is 1 if bit n of x and bit n of y is 1.                      |
+| \|     | Or                         | Bit n of x \| y is 1 if bit n of x or bit n of y is 1.                      |
+| ^      | Exclusive Or               | Bit n of x ^ y is 1 if bit n of x or bit n of y is 1 but not if both are 1. |
+| >>     | Right Shift (divide by 2)  | Bit n of x >> s is bit n - s of x.                                          |
+| \<\<   | Left Shift (multiply by 2) | Bit n of x \<\< s is bit n + s of x.                                        |
+
+Computers store information using bits. A **bit** (short for "binary digit") stores either the value $0$ or $1$. When we have only two choices, we can use a bit.
+
+The following examples in our daily lives can be represented using bits:
+
+1. Is a lightbulb on or off?
+
+2. Is a button enabled or disabled?
+
+3. Is the current time AM or PM?
+
+There are different bitwise operations used in bit manipulation. These bit operations operate on the individual bits of bit patterns. Bit operations are fast and can be used in optimizing time complexity.
+
+|          |            |            |            |            |
+| -------- | ---------- | ---------- | ---------- | ---------- |
+| And (&): | 0 & 0 = 0  | 1 & 0 = 0  | 0 & 1 = 0  | 1 & 1 = 1  |
+| Or (\|): | 0 \| 0 = 0 | 1 \| 0 = 1 | 0 \| 1 = 1 | 1 \| 1 = 1 |
+| Xor (^): | 0 ^ 0 = 0  | 1 ^ 0 = 1  | 0 ^ 1 = 1  | 1 ^ 1 = 0  |
+
+From the truth table above, we can see:
+
+- **myBits ^ 0** : No change
+
+- **myBits ^ 1** : Flip
+
+Some examples:
+
+N = 5 = (101)<sub>2</sub>
+
+~N = ~5 = ~(101)<sub>2</sub> = (010)<sub>2</sub> = 2
+
+A = 5 = (101)<sub>2</sub>
+
+B = 3 = (011)<sub>2</sub>
+
+A & B = (101)<sub>2</sub> & (011)<sub>2</sub>= (001)<sub>2</sub> = 1
+
+A | B = (101)<sub>2</sub> | (011)<sub>2</sub> = (111)<sub>2</sub> = 7
+
+A ^ B = (101)<sub>2</sub> ^ (011)<sub>2</sub> = (110)<sub>2</sub> = 6
+
+**Left Shift:**
+
+x \<\< y means x shifted y bits to the left. If you start shifting and run out of space, the bits just “drop off”. For example:
+
+00011001 \<\< 2 = 01100100
+
+00011001 \<\< 4 = 10010000
+
+Left shifting is the equivalent of **multiplying by a power of two**:
+
+x \<\< n = x \* (1 \<\< n)
+
+More specifically:
+
+8 \<\< 2 = 8 \* (1 \<\< 2) = 32
+
+**Right Shift:**
+
+x >> y means x shifted y bits to the right. If you start shifting and run out of space, the bits just “drop off” at the end. A bitwise right-shift will be the equivalent of **integer division by 2**. Example:
+
+00011001 >> 2 = 00000110
+
+00011001 >> 4 = 00000001
