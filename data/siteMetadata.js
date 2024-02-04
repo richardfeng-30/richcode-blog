@@ -11,7 +11,7 @@ const siteMetadata = {
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/banner.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'richcode.org@gmail.com',
+  email: 'info@richcode.org',
   github: 'https://github.com/richcodeorg',
   twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
