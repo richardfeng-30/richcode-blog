@@ -114,11 +114,11 @@ export default function LoginPage() {
               >
                 Password
               </label>
-              <div className="text-sm">
+              {/* <div className="text-sm">
                 <a href="#" className="font-semibold text-sky-500 hover:text-sky-400">
                   Forgot password?
                 </a>
-              </div>
+              </div> */}
             </div>
             <div className="mt-2">
               <input

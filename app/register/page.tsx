@@ -9,7 +9,9 @@ export default function RegisterPage() {
         {/* <form action="#" method="POST"> */}
 
         <div className="mb-4">
-          <label className="mb-2 block text-sm font-medium text-gray-600">Name</label>
+          <label htmlFor="name" className="mb-2 block text-sm font-medium text-gray-600">
+            Name
+          </label>
           <input
             type="text"
             id="name"
@@ -21,7 +23,9 @@ export default function RegisterPage() {
         </div>
 
         <div className="mb-4">
-          <label className="mb-2 block text-sm font-medium text-gray-600">Email</label>
+          <label htmlFor="email" className="mb-2 block text-sm font-medium text-gray-600">
+            Email
+          </label>
           <input
             type="text"
             id="email"

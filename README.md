@@ -2,7 +2,7 @@
 
 # RICHCODE Blog
 
-Welcome to the RICHCODE Blog! 
+Welcome to the RICHCODE Blog!
 
 Made with [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/) and [Contentlayer](https://www.contentlayer.dev/) to manage markdown content.
 
@@ -15,5 +15,3 @@ This blog includes tutorials and other works written and created by the RICHCODE
 © Copyright January 2024
 
 All Rights Reserved.
-
-
