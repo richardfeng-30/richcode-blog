@@ -27,59 +27,6 @@ export default function LoginPage() {
   }
 
   return (
-    // <div className="flex justify-center">
-    //   <div className="w-full rounded bg-white p-8 shadow-md sm:w-96">
-    //     <h2 className="mb-6 text-2xl font-semibold">Login</h2>
-
-    //     {/* <form onSubmit={handleLogin}> */}
-
-    //     <div className="mb-4">
-    //       <label className="mb-2 block text-sm font-medium text-gray-600">Username</label>
-    //       <input
-    //         type="text"
-    //         id="username"
-    //         name="username"
-    //         className="w-full rounded-md border px-3 py-2"
-    //         onChange={(e) => setUserName(e?.target?.value || '')}
-    //         placeholder="Enter your username"
-    //         required
-    //       />
-    //     </div>
-
-    //     <div className="mb-6">
-    //       <label htmlFor="password" className="mb-2 block text-sm font-medium text-gray-600">
-    //         Password
-    //       </label>
-    //       <input
-    //         type="password"
-    //         id="password"
-    //         name="password"
-    //         className="w-full rounded-md border px-3 py-2"
-    //         onChange={(e) => setPassword(e?.target?.value || '')}
-    //         placeholder="Enter your password"
-    //         required
-    //       />
-    //     </div>
-
-    //     <button
-    //       type="submit"
-    //       onClick={handleLogin}
-    //       className="focus:shadow-outline-blue w-full rounded-md bg-blue-500 py-2 text-white hover:bg-blue-600 focus:outline-none"
-    //     >
-    //       Login
-    //     </button>
-
-    //     {/* </form> */}
-
-    //     <p className="mt-4 text-sm text-gray-600">
-    //       Don't have an account?
-    //       <Link key="register" href="/register" className="ml-2 text-blue-500">
-    //         Sign up here
-    //       </Link>
-    //     </p>
-    //   </div>
-    // </div>
-
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
@@ -146,10 +93,7 @@ export default function LoginPage() {
 
         <p className="mt-10 text-center text-sm text-gray-500">
           Don't have an account?{' '}
-          <Link
-            href="/register"
-            className="font-semibold leading-6 text-sky-500 hover:text-sky-400"
-          >
+          <Link href="/signup" className="font-semibold leading-6 text-sky-500 hover:text-sky-400">
             Sign up
           </Link>
         </p>
