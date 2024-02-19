@@ -1,26 +1,41 @@
+import { connect } from 'lib/db'
+import { hashPassword, verifyPassword } from 'lib/bcrypt'
 import { NextResponse } from 'next/server'
 
 export const POST = async (req: Request, res: Response) => {
   try {
     const body = await req.json()
-    const { username, password } = body
-    if (username && password) {
-      // we need to connect to mysql
-      // and check if they are in the db
-      return NextResponse.json({ success: true, new: req })
+    const { email, password } = body
+    if (email && password) {
+      const connection = await connect()
+      const hashedPassword = await hashPassword(password)
+
+      const querySql = `Select * from users where email = ? and password = ?`
+      const [rows] = await connection.execute(querySql, [email, password])
+      console.log(rows)
+      if (rows?.length > 0) {
+        //        const hashedPassword = await hashPassword(password)
+        //        console.log(hashedPassword, 'hashpassword')
+        //        const passwordDB = rows[0].password
+        //        const passwordMatches = await verifyPassword(passwordDB, hashedPassword)
+        //console.log(passwordMatches, 'passwordMatches')
+
+        //if (passwordMatches) {
+        return NextResponse.json({ success: true }, { status: 200 })
+        //}
+        //return NextResponse.json({ success: false }, { status: 400 })
+      } else {
+        return NextResponse.json(
+          { success: false, users: 'user could not be found' },
+          { status: 400 }
+        )
+      }
     }
-    return NextResponse.json({ success: false, new: req })
+    return NextResponse.json(
+      { success: false, users: 'email and password required' },
+      { status: 400 }
+    )
   } catch (err) {
-    return NextResponse.json({ success: false, error: true })
+    return NextResponse.json({ success: false, error: err }, { status: 400 })
   }
 }
-
-// CREATE TABLE `user` (
-//      `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-//      `userName` varchar(32) DEFAULT NULL,
-//      `password` varchar(32) DEFAULT NULL,
-//      `name` varchar(32) DEFAULT NULL,
-//      `school` varchar(32) DEFAULT NULL,
-//      `age` tinyint(100) DEFAULT NULL,
-//      PRIMARY KEY (`id`)
-//     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

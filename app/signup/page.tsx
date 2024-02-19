@@ -59,36 +59,6 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          <div>
-            <label htmlFor="school" className="block text-sm font-medium leading-6 text-gray-900">
-              School
-            </label>
-            <div className="mt-2">
-              <input
-                type="text"
-                id="school"
-                name="school"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
-                required
-              />
-            </div>
-          </div>
-
-          <div>
-            <label htmlFor="age" className="block text-sm font-medium leading-6 text-gray-900">
-              Age
-            </label>
-            <div className="mt-2">
-              <input
-                type="number"
-                id="age"
-                name="age"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
-                required
-              />
-            </div>
-          </div>
-
           <button
             type="submit"
             className="flex w-full justify-center rounded-md bg-sky-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500"
