@@ -1,30 +1,44 @@
 'use client'
 import Link from '@/components/Link'
+import Popup from '@/components/Popup'
+import { useUserProvider } from 'context/context'
 import { useState } from 'react'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [showPopup, setShowPopup] = useState(false) // State to manage popup visibility
+  const { state, setState } = useUserProvider();
+
   const handleLogin = async (e) => {
+    console.log("state", state)
     e.preventDefault()
     const postData = { email: email, password: password }
-    try {
-      const resp = await fetch('api/login', {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify(postData),
-      })
-      const data = await resp.json()
-      const { success } = data || {}
-      if (success) {
-        window.location.href = '/'
+    if(email && password) {
+      try {
+        const resp = await fetch('api/login', {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json',
+          },
+          body: JSON.stringify(postData),
+        })
+        const data = await resp.json()
+        const { success } = data || {}
+        if (success) {
+          window.location.href = '/';
+          setState({email: email, valid: true})
+        } else {
+          // setState({email: email, valid: true})
+          setShowPopup(true);
+        }
+      } catch (e) {
+        console.log('e', e)
       }
-    } catch (e) {
-      console.log('e', e)
     }
   }
+  console.log("state", state)
+
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -98,6 +112,16 @@ export default function LoginPage() {
           </Link>
         </p>
       </div>
+
+      <Popup 
+        title={"Login failed"}
+        text={"You failed to log in."}
+        text2={"Please go back and try again."}
+        show={showPopup}
+        setShow={() => {
+          setShowPopup(false)
+        }}
+      />
     </div>
   )
 }

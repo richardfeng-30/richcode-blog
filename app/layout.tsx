@@ -10,6 +10,7 @@ import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
+import { UserProvider } from 'context/context'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -69,8 +70,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SectionContainer>
             <div className="flex h-screen flex-col justify-between font-sans">
               <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
-                <Header />
-                <main className="mb-auto">{children}</main>
+                <UserProvider>
+                  <Header />
+                  <main className="mb-auto">{children}</main>
+                </UserProvider>
               </SearchProvider>
               <Footer />
             </div>
