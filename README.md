@@ -12,6 +12,14 @@ Support our blog by giving it a star on GitHub.
 
 This blog includes tutorials and other works written and created by the RICHCODE Team. No part of this blog may be reproduced without prior permission. All work within this blog is copyrighted by the respective authors.
 
+Please note, that if you are using Windows, you may need to run:
+
+set PWD="$(pwd)"
+
+First, run the development server:
+
+yarn dev
+
 © Copyright January 2024
 
 All Rights Reserved.

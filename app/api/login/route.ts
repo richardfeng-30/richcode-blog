@@ -1,7 +1,11 @@
 import { connect } from 'lib/db'
 import { hashPassword, verifyPassword } from 'lib/bcrypt'
 import { NextResponse } from 'next/server'
+import { sign, verify } from 'jsonwebtoken'
+import { serialize } from 'cookie'
+import { cookies } from 'next/headers'
 
+const MAX_AGE = 60 * 60 * 24 * 30 // days
 export const POST = async (req: Request, res: Response) => {
   try {
     const body = await req.json()
@@ -21,7 +25,26 @@ export const POST = async (req: Request, res: Response) => {
         //console.log(passwordMatches, 'passwordMatches')
 
         //if (passwordMatches) {
-        return NextResponse.json({ success: true }, { status: 200 })
+        const secret = 'secret'
+        const token = sign(
+          {
+            email,
+          },
+          secret,
+          {
+            expiresIn: MAX_AGE,
+          }
+        )
+
+        const COOKIE_NAME = 'cookie'
+        const seralized = serialize(COOKIE_NAME, token, {
+          httpOnly: true,
+          secure: true,
+          sameSite: 'strict',
+          maxAge: MAX_AGE,
+          path: '/',
+        })
+        return NextResponse.json({ success: true, data: true }, { status: 200 })
         //}
         //return NextResponse.json({ success: false }, { status: 400 })
       } else {
@@ -31,10 +54,6 @@ export const POST = async (req: Request, res: Response) => {
         )
       }
     }
-    return NextResponse.json(
-      { success: false, users: 'email and password required' },
-      { status: 400 }
-    )
   } catch (err) {
     return NextResponse.json({ success: false, error: err }, { status: 400 })
   }
