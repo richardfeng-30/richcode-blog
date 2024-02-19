@@ -13,7 +13,7 @@ const siteMetadata = {
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'info@richcode.org',
   github: 'https://github.com/richcodeorg',
-  twitter: 'https://twitter.com/Twitter',
+  twitter: 'https://twitter.com/richcodeorg',
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com/@richcodeorg',
   linkedin: 'https://www.linkedin.com',
