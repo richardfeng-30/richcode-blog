@@ -8,13 +8,14 @@ export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPopup, setShowPopup] = useState(false) // State to manage popup visibility
-  const { state, setState } = useUserProvider();
+  const { state, setState } = useUserProvider()
+  const [errorText, setErrorText] = useState('')
 
   const handleLogin = async (e) => {
-    console.log("state", state)
+    console.log('state', state)
     e.preventDefault()
     const postData = { email: email, password: password }
-    if(email && password) {
+    if (email && password) {
       try {
         const resp = await fetch('api/login', {
           method: 'POST',
@@ -26,19 +27,19 @@ export default function LoginPage() {
         const data = await resp.json()
         const { success } = data || {}
         if (success) {
-          window.location.href = '/';
-          setState({email: email, valid: true})
+          window.location.href = '/'
+          setState({ email: email, valid: true })
         } else {
           // setState({email: email, valid: true})
-          setShowPopup(true);
+          setShowPopup(true)
+          setErrorText('Error')
         }
       } catch (e) {
         console.log('e', e)
       }
     }
   }
-  console.log("state", state)
-
+  console.log('state', state)
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -113,10 +114,10 @@ export default function LoginPage() {
         </p>
       </div>
 
-      <Popup 
-        title={"Login failed"}
-        text={"You failed to log in."}
-        text2={"Please go back and try again."}
+      <Popup
+        title={errorText}
+        text={'You failed to log in.'}
+        text2={'Please go back and try again.'}
         show={showPopup}
         setShow={() => {
           setShowPopup(false)
