@@ -13,7 +13,7 @@ export default function LoginPage() {
 
   const handleLogin = async (e) => {
     console.log('state', state)
-    e.preventDefault()
+    // e.preventDefault()
     const postData = { email: email, password: password }
     if (email && password) {
       try {

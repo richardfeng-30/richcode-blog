@@ -49,7 +49,7 @@ export const POST = async (req: Request, res: Response) => {
         //return NextResponse.json({ success: false }, { status: 400 })
       } else {
         return NextResponse.json(
-          { success: false, users: 'user could not be found' },
+          { success: false, error: 'user could not be found' },
           { status: 400 }
         )
       }
