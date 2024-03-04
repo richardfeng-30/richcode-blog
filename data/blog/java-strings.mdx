@@ -1,0 +1,59 @@
+---
+title: 'Java Strings'
+date: '2024-02-11'
+lastmod: '2024-02-11'
+tags: ['coding', 'java', 'guide']
+draft: false
+summary: 'Strings are a series of characters. They can be single words, multiple words, or special characters. All strings are written out between double quotes.'
+authors: ['richardfeng']
+---
+
+Strings are a series of characters. They can be single words, multiple words, or special characters. All strings are written out between double quotes.
+
+## Declaring Strings
+
+```java
+String str = "hello";
+```
+
+In the example above, `str` is the name of the string and it has a value of "hello". Remember to capitalize String, as it is a class, rather than a primitive data type.
+
+## String Concatenations
+
+When you are adding two strings together, you are concatenating them. The + ( plus ) operator combines two strings.
+
+```java
+String str1 = "hello";
+String str2 = "world";
+System.out.println(str1 + str2);
+// returns "helloworld"
+```
+
+## String Index Numbers
+
+The characters in a string are identified by index numbers. Index numbers start counting at 0.
+
+| H   | E   | L   | L   | O   |
+| --- | --- | --- | --- | --- |
+| 0   | 1   | 2   | 3   | 4   |
+
+## Useful String Methods
+
+| Method            | Returns                                                   |
+| ----------------- | --------------------------------------------------------- |
+| startsWith("a")   | String                                                    |
+| endsWith(“a”)     | Boolean                                                   |
+| length()          | int: the length of the string ( number of characters )    |
+| indexOf(“a”)      | int: the index of the first position where “a” is located |
+| replace(“a”, “b”) | String                                                    |
+| toUpperCase()     | String                                                    |
+| toLowerCase()     | String                                                    |
+| trim()            | String                                                    |
+
+Strings are immutable, which means once we initialize them, their value cannot be
+changed. All methods that modify a string (like toUpperCase) return a new string
+object. The original string remains unaffected.
+
+For reference:
+
+https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/String.html
